@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartyPalApp.EventHomePage">
+
+    <Grid
+         RowDefinitions=".05*,.08*,.45*,.05*,.05*,.3*">
+        <Label
+            FontSize="16"
+            HorizontalOptions="Center"
+            Text="Evenementen"
+            TextColor="Black"
+            VerticalOptions="Center"/>
+        <Grid Grid.Row="1" Margin="25,10,25,10">
+            <RoundRectangle
+                CornerRadius="25"
+                Fill="#CCCCCC"
+                HeightRequest="45"/>
+            <SearchBar CancelButtonColor="Grey"
+                       Placeholder="Zoek op naam.."
+                       VerticalOptions="Center"
+                       TextColor="black"/>
+
+        </Grid>
+        <CarouselView
+            IndicatorView="indicatorView"
+            Grid.Row="2"
+            ItemsSource="{Binding Events}"
+            PeekAreaInsets="30">
+            <!-- Zorgt voor snapping tussen de events -->
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout
+                    ItemSpacing="0"
+                    Orientation="Horizontal"
+                    SnapPointsAlignment="Center"
+                    SnapPointsType="MandatorySingle"/>
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border 
+                            Grid.RowSpan="3"
+                            BackgroundColor="#FFDAB9"
+                            HeightRequest="300"
+                            Stroke="Black"
+                            StrokeShape="RoundRectangle 30,30,30,30"
+                            WidthRequest="300">
+                            <Grid RowDefinitions=".2*,.6*,.2*">
+                                <Image 
+                                    Aspect="AspectFill" 
+                                    Source="{Binding Image}"
+                                    Grid.RowSpan ="3"/>
+
+                                <RoundRectangle
+                                    Grid.RowSpan="3"
+                                    CornerRadius="30"
+                                    HeightRequest="300"
+                                    WidthRequest="300"
+                                    Opacity=".7">
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="#030005"></GradientStop>
+                                            <!-- Darker color at the top -->
+                                            <GradientStop Offset="0.3" Color="#030005"></GradientStop>
+                                            <!-- Middle color -->
+                                            <GradientStop Offset="1" Color="Transparent"></GradientStop>
+                                            <!-- Darker color at the bottom -->
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
+
+
+                                <VerticalStackLayout Spacing="40" Grid.Row="1">
+                                    <Label 
+                                        Text="{Binding Title}"
+                                        FontSize="Large"
+                                        TextColor="White"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center">
+                                    </Label>
+                                    <Label 
+                                        Text="{Binding Description}"
+                                        FontSize="35"
+                                        TextColor="White"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center">
+                                    </Label>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity=".7"
+                                    Radius="50"
+                                    Offset="0,0"/>
+                            </Border.Shadow>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView
+            x:Name="indicatorView"
+            Grid.Row="3"
+            HorizontalOptions="Center"
+            IndicatorColor="#616161"
+            IndicatorSize="8"
+            SelectedIndicatorColor="Red"
+            VerticalOptions="Center"/>
+    </Grid>
+</ContentPage>
