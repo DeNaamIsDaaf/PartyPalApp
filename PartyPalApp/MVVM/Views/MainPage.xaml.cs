@@ -2,19 +2,23 @@
 using System.Collections.ObjectModel;
 using PartyPalApp.MVVM.Models;
 using Microsoft.Maui.Controls;
+using PartyPalApp.ViewModels;
 
 namespace PartyPalApp
 {
     public partial class MainPage : ContentPage
     {
-        private ObservableCollection<Event> events;
+
+        private EventViewmodel? viewModel;
+
+        //private ObservableCollection<Event> events;
         private ObservableCollection<Speaker> speakers;
 
-        public ObservableCollection<Event> Events
-        {
-            get { return events; }
-            set { events = value; OnPropertyChanged(); }
-        }
+        //public ObservableCollection<Event> Events
+        //{
+        //    get { return events; }
+        //    set { events = value; OnPropertyChanged(); }
+        //}
 
         public ObservableCollection<Speaker> Speakers
         {
@@ -25,30 +29,30 @@ namespace PartyPalApp
 
         public MainPage()
         {
+            viewModel = new EventViewmodel();
             InitializeComponent();
-            InitializeEvents();
             InitializeSpeakers();
-            BindingContext = this;
+            BindingContext = viewModel;
 
-            eventsCollectionView.ItemsSource = Events;
             speakersCollectionView.ItemsSource = Speakers;
         }
 
-        private void InitializeEvents()
-        {
-            // Add sample events to the collection
-            Events = new ObservableCollection<Event>
-            {
-                new Event("Event 1", "Description"),
-                new Event("Event 2", "Description"),
-                new Event("Event 3", "Description"),
-                new Event("Event 4", "Description"),
-                new Event("Event 5", "Description"),
-                new Event("Event 6", "Description"),
-                new Event("Event 7", "Description"),
-                new Event("Event 8", "Description"),
-            };
-        }
+        //private void InitializeEvents()
+        //{
+        //    // Add sample events to the collection
+        //    Events = new ObservableCollection<Event>
+        //    {
+        //        new Event("Event 1", "Description", "eventbackground.jpg"),
+        //        new Event("Event 2", "Description", "eventbackground.jpg"),
+        //        new Event("Event 3", "Description", "eventbackground.jpg"),
+        //        new Event("Event 4", "Description", "eventbackground.jpg"),
+        //        new Event("Event 5", "Description", "eventbackground.jpg"),
+        //        new Event("Event 6", "Description", "eventbackground.jpg"),
+        //        new Event("Event 7", "Description", "eventbackground.jpg"),
+        //        new Event("Event 8", "Description", "eventbackground.jpg"),
+        //    };
+        //}
+
 
         private void InitializeSpeakers()
         {
