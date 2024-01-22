@@ -1,4 +1,3 @@
-using PartyPalApp.Models;
 using PartyPalApp.ViewModels;
 using System.Collections.ObjectModel;
 

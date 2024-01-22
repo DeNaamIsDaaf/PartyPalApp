@@ -105,7 +105,47 @@
             HorizontalOptions="Center"
             IndicatorColor="#616161"
             IndicatorSize="8"
-            SelectedIndicatorColor="Red"
+            SelectedIndicatorColor="#f01c34"
             VerticalOptions="Center"/>
+
+
+        <ListView
+            Margin="0,-40,0,0"
+            Grid.Row="5"
+            SeparatorVisibility="None"
+            HasUnevenRows="True"
+            ItemsSource="{Binding Events}"
+            SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <SwipeView>
+                            <SwipeView.Content>
+                                <Grid Padding="10">
+                                    <Frame CornerRadius="20" HasShadow="True">
+                                        <StackLayout Orientation="Horizontal">
+                                            <!-- Border around the date labels -->
+                                            <Frame CornerRadius="10" BackgroundColor="#f01c34" Padding="4" HeightRequest="80" WidthRequest="70">
+                                                <StackLayout>
+                                                    <Label Text="{Binding Date.Day}" FontSize="20" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding Date, StringFormat='{0:MMM}'}" FontSize="15" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding Date.Year}" FontSize="15" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold"/>
+                                                </StackLayout>
+                                            </Frame>
+
+                                            <!-- Separate the event name more to the left -->
+                                            <StackLayout Margin="30,0,0,0" VerticalOptions="Center">
+                                                <Label VerticalOptions="Center" FontSize="17" Text="{Binding Title}" WidthRequest="250"/>
+                                                <Label VerticalOptions="Center" FontSize="17" Text="{Binding Description}" WidthRequest="250"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </SwipeView.Content>
+                        </SwipeView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </ContentPage>
