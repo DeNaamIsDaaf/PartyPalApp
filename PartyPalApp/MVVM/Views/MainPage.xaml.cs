@@ -39,14 +39,14 @@ namespace PartyPalApp
             // Add sample events to the collection
             Events = new ObservableCollection<Event>
             {
-                new Event("Event 1", "Description"),
-                new Event("Event 2", "Description"),
-                new Event("Event 3", "Description"),
-                new Event("Event 4", "Description"),
-                new Event("Event 5", "Description"),
-                new Event("Event 6", "Description"),
-                new Event("Event 7", "Description"),
-                new Event("Event 8", "Description"),
+                new Event("Event 1", "Description", "eventbackground.jpg", DateTime.Now.AddDays(1)),
+                new Event("Event 2", "Description", "eventbackground.jpg", DateTime.Now.AddDays(1)),
+                new Event("Event 3", "Description", "eventbackground.jpg", DateTime.Now.AddDays(1)),
+                new Event("Event 4", "Description", "eventbackground.jpg", DateTime.Now.AddDays(1)),
+                new Event("Event 5", "Description", "eventbackground.jpg", DateTime.Now.AddDays(1)),
+                new Event("Event 6", "Description", "eventbackground.jpg", DateTime.Now.AddDays(1)),
+                new Event("Event 7", "Description", "eventbackground.jpg", DateTime.Now.AddDays(1)),
+                new Event("Event 8", "Description", "eventbackground.jpg", DateTime.Now.AddDays(1)),
             };
         }
 
