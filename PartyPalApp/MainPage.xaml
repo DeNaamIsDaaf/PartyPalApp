@@ -2,12 +2,107 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PartyPalApp.MainPage">
+  
+    <ScrollView>
 
-    <StackLayout>
-        <Frame BackgroundColor="Black"
-               HeightRequest="40"
-               WidthRequest="160">
-        </Frame>
-    </StackLayout>
+        <StackLayout>
+
+            <Label x:Name="FavouritesLabel"
+                   Text="Favorieten"
+                   Margin="30,10,0,0"
+                   FontSize="Body"
+                   FontAttributes="Bold"/>
+
+            <!-- CollectionView to display events -->
+            <CollectionView x:Name="eventsCollectionView"
+                        ItemsSource="{Binding Events}"
+                        HorizontalOptions="Center"
+                        Margin="0,0,0,10"
+                        SelectionMode="None">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" 
+                                       SnapPointsType="MandatorySingle" 
+                                       SnapPointsAlignment="Start" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" 
+                               BorderColor="Red"
+                               BackgroundColor="White" 
+                               Padding="10"
+                               HeightRequest="120"
+                               WidthRequest="180"
+                               Margin="10,10,0,10">
+                            <StackLayout>
+                                <Label Text="{Binding Title}" 
+                                       TextColor="Black" 
+                                       HorizontalOptions="Center"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Description}" 
+                                       TextColor="Black"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+          
+            <Button x:Name="NotificationButton"
+                    Text="Meldingen"
+                    HeightRequest="60"
+                    WidthRequest="300"
+                    Margin="0,20,0,0"
+                    Background="Red"
+                    FontAttributes="Bold"/>
+
+            <Label x:Name="RecommendedSpeakers"
+                   Text="Aanbevolen sprekers"
+                   FontSize="Body"
+                   FontAttributes="Bold"
+                   Margin="30,50,0,20"/>
+
+            <!-- CollectionView to display speakers -->
+            <CollectionView x:Name="speakersCollectionView"
+            ItemsSource="{Binding Speakers}"
+            HorizontalOptions="Center"
+            Margin="20,0,20,10"
+            SelectionMode="None">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Use a Grid for each speaker -->
+                        <Grid HeightRequest="150" WidthRequest="150" Margin="10,10,0,10" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Image -->
+                            <Image Grid.Row="0" Source="{Binding Image}"  MaximumHeightRequest="90" MaximumWidthRequest="140"/>
+
+                            <!-- Name and Description -->
+                            <StackLayout Grid.Row="1" HorizontalOptions="Center">
+                                <Label Text="{Binding Name}" TextColor="Black"  
+                                       FontAttributes="Bold"
+                                       FontSize="Small"/>
+                                <Label Text="{Binding Description}" TextColor="Black"/>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
+        </StackLayout>
+
+    </ScrollView>
 
 </ContentPage>

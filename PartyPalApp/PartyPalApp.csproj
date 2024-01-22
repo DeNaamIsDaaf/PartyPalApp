@@ -66,6 +66,9 @@
 	  <MauiXaml Update="EventHomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+
+	  <Folder Include="MVVM\ViewModels\" />
+	  <Folder Include="MVVM\Views\" />
 	</ItemGroup>
 
 </Project>

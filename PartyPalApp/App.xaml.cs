@@ -5,8 +5,7 @@
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new EventHomePage());
+            MainPage = new NavigationPage(new MainPage());
         }
     }
 }
