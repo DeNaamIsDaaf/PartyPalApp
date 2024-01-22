@@ -22,6 +22,7 @@ namespace PartyPalApp
             set { speakers = value; OnPropertyChanged(); }
         }
 
+
         public MainPage()
         {
             InitializeComponent();
