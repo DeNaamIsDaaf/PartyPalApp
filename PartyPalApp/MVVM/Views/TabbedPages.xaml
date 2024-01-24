@@ -17,5 +17,4 @@
     <local:MapPage Title="Plattegrond" IconImageSource="map.png" x:Name="mapPage"/>
     <local:SettingsPage Title="Instellingen" IconImageSource="settings.png" x:Name="settingPage"/>
 
-
 </TabbedPage>
