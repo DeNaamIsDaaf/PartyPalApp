@@ -83,6 +83,7 @@
                     <TapGestureRecognizer Tapped="OnArrow2Tapped"/>
                 </Image.GestureRecognizers>
             </Image>
+            <Label Text="Test"/>
         </Grid>
     </StackLayout>
 
