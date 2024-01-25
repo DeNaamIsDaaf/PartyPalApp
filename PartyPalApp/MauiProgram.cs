@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using PartyPalApp.MVVM.Models;
+using PartyPalApp.Repositories;
 
 namespace PartyPalApp
 {
@@ -15,8 +17,9 @@ namespace PartyPalApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<BaseRepository<Event>>();
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

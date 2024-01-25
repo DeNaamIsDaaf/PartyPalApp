@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PartyPalApp.MVVM.Models
 {
-    public class Event
+    [Table("Events")]
+    public class Event : TableData
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string? Title { get; set; }
+        [MaxLength(100)]
+        public string? Description { get; set; }
         public string? Image { get; set; }
         public DateTime Date { get; set; }
-        // Add more properties as needed
-
-        public Event(string title, string description, string image, DateTime date)
-        {
-            Title = title;
-            Description = description;
-            Image = image;
-            Date = date;
-        }
     }
 }

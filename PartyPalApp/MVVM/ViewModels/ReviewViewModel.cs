@@ -22,10 +22,9 @@ namespace PartyPalApp.MVVM.ViewModels
             // Replace this with your logic to fetch reviews from a database or other source.
             Reviews = new ObservableCollection<Review>
             {
-                new Review ("Jan Janssen", "Echt een leuk evenement!", 8 ),
-                new Review ("Peter Gilles", "Heel educatief!", 9),
-                new Review ("Alice Johnson", "Geweldige ervaring!", 10),
-                // Add more reviews as needed
+                new Review { Name = "Jan Janssen", Description = "Echt een leuk evenement!", Score = 8 },
+                new Review { Name = "Peter Gilles", Description = "Heel educatief!", Score = 9 },
+                new Review { Name = "Alice Johnson", Description = "Geweldige ervaring!", Score = 10 },
             };
         }
     }
