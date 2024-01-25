@@ -6,4 +6,8 @@ public partial class MapPage : ContentPage
 	{
 		InitializeComponent();
 	}
+    void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
+    {
+        // Handle the pinch
+    }
 }

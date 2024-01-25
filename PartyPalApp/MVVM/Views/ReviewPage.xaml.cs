@@ -4,6 +4,7 @@ namespace PartyPalApp;
 
 public partial class ReviewPage : ContentPage
 {
+
     private ReviewViewModel viewModel;
 
     public ReviewPage()
