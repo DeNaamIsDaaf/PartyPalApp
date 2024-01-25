@@ -43,7 +43,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.png" />
 
 		<!-- Splash Screen -->
-		<mauiSplashScreen Include="Resources\Splash\splash.png" Color="#fff"/>
+		<mauiSplashScreen Include="Resources\Splash\splash.png" Color="#fff" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -73,6 +73,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="MVVM\Views\EventHomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\EventOverviewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\MapPage.xaml">
