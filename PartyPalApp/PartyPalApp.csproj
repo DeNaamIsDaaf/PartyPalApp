@@ -77,10 +77,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="MVVM\Views\EventHomePage.xaml">
+	  <MauiXaml Update="MVVM\Views\EventOverviewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVM\Views\EventOverviewPage.xaml">
+	  <MauiXaml Update="MVVM\Views\EventHomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\MapPage.xaml">

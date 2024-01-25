@@ -1,4 +1,4 @@
-namespace PartyPalApp.MVVM.Views;
+namespace PartyPalApp;
 
 public partial class EventOverviewPage : ContentPage
 {
