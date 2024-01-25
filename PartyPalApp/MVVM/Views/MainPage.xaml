@@ -10,7 +10,7 @@
         <StackLayout>
 
             <Label x:Name="FavouritesLabel"
-                   Text="Favorieten"
+                   Text="Favoriete"
                    Margin="30,10,0,0"
                    FontSize="Body"
                    FontAttributes="Bold"/>
