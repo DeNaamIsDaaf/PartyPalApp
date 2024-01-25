@@ -6,8 +6,14 @@ public partial class MapPage : ContentPage
 	{
 		InitializeComponent();
 	}
-    void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
+
+    protected override void OnAppearing()
     {
-        // Handle the pinch
+        LayoutImage.Source = "layout.png";
+    }
+
+    private void CalculateRoute_Clicked(object sender, EventArgs e)
+    {
+        LayoutImage.Source = "map_emergency.png";
     }
 }
