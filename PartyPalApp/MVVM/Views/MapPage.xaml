@@ -20,10 +20,7 @@
                FontAttributes="Bold"/>
         <Frame BorderColor="Black"
                Margin="30,20,30,0">
-            <Image Source="layout.png">
-                <Image.GestureRecognizers>
-                    <PinchGestureRecognizer PinchUpdated="OnPinchUpdated" />
-                </Image.GestureRecognizers>
+            <Image x:Name="LayoutImage" Source="layout.png">
             </Image>
         </Frame>
         <Frame
@@ -36,16 +33,18 @@
                     FontAttributes="Bold"/>
                 <Image
                     Margin="0,-10,0,-20"
-                    Source="legenda1.png"
+                    Source="legenda.png"
                     HeightRequest="120"
                     WidthRequest="500">
                 </Image>
             </StackLayout>
         </Frame>
         
-        <Button 
+        <Button
+            x:Name="CalculateRoute"
             Text="Bereken Vluchtroute"
             Margin="70,40,70,0"
-            BackgroundColor="Red"/>
+            BackgroundColor="Red"
+            Clicked="CalculateRoute_Clicked"/>
     </StackLayout>
 </ContentPage>
