@@ -11,9 +11,10 @@
 
             <Label x:Name="FavouritesLabel"
                    Text="Favorieten"
-                   Margin="30,10,0,0"
+                   Margin="0,10,0,0"
                    FontSize="Body"
-                   FontAttributes="Bold"/>
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
 
             <!-- CollectionView to display events -->
             <CollectionView x:Name="eventsCollectionView"
