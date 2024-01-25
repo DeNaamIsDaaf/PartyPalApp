@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartyPalApp.SettingsPage"
+             Title="SettingsPage"
+             BackgroundImageSource="background.png">
+
+    <StackLayout>
+
+       
+
+        <Frame BackgroundColor="White" 
+               CornerRadius="10" 
+               Padding="10" 
+               WidthRequest="370"
+               Margin="0,20,0,30">
+            <StackLayout>
+                <Label Text="Over PartyPal"
+                       FontSize="Title"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget sapien eu lectus dapibus dignissim nec in odio. Quisque facilisis sagittis purus vel eleifend. Sed id sollicitudin lectus."
+                       FontSize="Medium"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+            </StackLayout>
+        </Frame>
+
+        <Frame BackgroundColor="White" 
+               CornerRadius="10" 
+               Padding="10" 
+               WidthRequest="370"
+               HeightRequest="285"
+               Margin="0,20,0,10">
+            <StackLayout>
+                <Button Text="Privacy en Beveiliging"
+                        FontSize="Medium"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Margin="0,10,0,20"/>
+                <Button Text="Uiterlijk van de App"
+                        FontSize="Medium"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Margin="0,0,0,20"/>
+                <Button Text="Probleem aangeven"
+                        FontSize="Medium"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Margin="0,0,0,20"/>
+                <Button Text="Feedback geven"
+                        FontSize="Medium"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Margin="0,0,0,10"/>
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+</ContentPage>

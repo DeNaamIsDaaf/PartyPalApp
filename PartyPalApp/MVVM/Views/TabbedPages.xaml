@@ -8,7 +8,8 @@
             BarBackgroundColor="Red"
             UnselectedTabColor="White"
             SelectedTabColor="Black"
-            BarTextColor="White">
+            BarTextColor="White"
+            android:TabbedPage.IsSwipePagingEnabled="False">
 
 
     <local:EventHomePage Title="Evenementen" IconImageSource="event.png" x:Name="eventPage"/>
