@@ -1,17 +1,15 @@
+using PartyPalApp.MVVM.ViewModels;
+
 namespace PartyPalApp;
 
 public partial class ReviewPage : ContentPage
 {
-	public ReviewPage()
-	{
-		InitializeComponent();
-	}
-    private void OnArrow1Tapped(object sender, EventArgs e)
+    private ReviewViewModel viewModel;
+
+    public ReviewPage()
     {
-        DisplayAlert("Arrow Tapped", "Arrow 1 werkt", "OK");
+        InitializeComponent();
+        viewModel = new ReviewViewModel();
+        BindingContext = viewModel;
     }
-	private void OnArrow2Tapped(object sender, EventArgs e)
-	{
-		DisplayAlert("Arrow Tapped", "Arrow 2 werkt", "OK");
-	}
 }
