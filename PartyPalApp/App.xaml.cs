@@ -1,13 +1,17 @@
-﻿using PartyPalApp.MVVM.Views;
+﻿using PartyPalApp.MVVM.Models;
+using PartyPalApp.MVVM.Views;
+using PartyPalApp.Repositories;
 
 namespace PartyPalApp
 {
     public partial class App : Application
     {
-        public App()
+        public static BaseRepository<Event>? EventRepo { get; private set; }
+        public App(BaseRepository<Event>? eventRepo)
         {
             InitializeComponent();
-            MainPage = new TabbedPages();
+            EventRepo = eventRepo;
+            MainPage = new NavigationPage(new TabbedPages());
         }
     }
 }

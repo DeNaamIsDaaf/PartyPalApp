@@ -25,10 +25,10 @@ namespace PartyPalApp.ViewModels
             //Hier Databasee van Events ophalen NU is het HARDCODED!!
             Events = new ObservableCollection<Event>()
             {
-                new Event ("Event1", "10.30 - 12.00", "eventbackground.jpg", DateTime.Now.AddDays(1) ),
-                new Event ("Event2", "12.30 - 13.00", "eventbackground.jpg", DateTime.Now.AddDays(2)),
-                new Event ("Event3", "13.00 - 14.00", "eventbackground.jpg", DateTime.Now.AddDays(3)),
-                new Event ("Event4", "14.30 - 15.00", "eventbackground.jpg", DateTime.Now.AddDays(4))
+                new Event { Title = "Event1", Description = "10.30 - 12.00", Image =  "eventbackground.jpg", Date = DateTime.Now.AddDays(1) },
+                new Event { Title = "Event2", Description = "12.30 - 13.00", Image = "eventbackground.jpg", Date = DateTime.Now.AddDays(2) },
+                new Event { Title = "Event3", Description = "13.00 - 14.00", Image = "eventbackground.jpg", Date = DateTime.Now.AddDays(3) },
+                new Event { Title = "Event4", Description = "14.30 - 15.00", Image = "eventbackground.jpg", Date = DateTime.Now.AddDays(4) }
             };
 
             Events = new ObservableCollection<Event>(Events.OrderBy(e => e.Date));
