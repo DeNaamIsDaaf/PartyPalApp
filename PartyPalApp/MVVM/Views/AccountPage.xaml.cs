@@ -6,4 +6,9 @@ public partial class AccountPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void OnVriendenClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new FriendPage());
+    }
 }

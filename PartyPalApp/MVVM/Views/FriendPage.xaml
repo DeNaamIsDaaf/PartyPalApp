@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartyPalApp.FriendPage"
+             Title="FriendPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="background.png">
+
+    <StackLayout>
+
+        <Button x:Name="backButton"
+                Text="X"
+                WidthRequest="50"
+                TextColor="Red"
+                FontAttributes="Bold"
+                FontSize="15"
+                BackgroundColor="Transparent"
+                HorizontalOptions="End"
+                Clicked="backButtonClicked"/>
+        
+        <Label x:Name="friendTitleLabel"
+               Text="Jouw vrienden"
+               HorizontalOptions="Center"
+               Margin="0,0,0,10"
+               FontSize="24"
+               FontAttributes="Bold"/>
+
+        <Grid>
+            <Label FontSize="Body"
+                   HorizontalOptions="Center"
+                   Text="Evenementen"
+                   TextColor="Black"
+                   Margin="0,10,0,0"
+                   FontAttributes="Bold"/>
+
+            <Grid Grid.Row="1" Margin="25,10,25,0">
+                <Frame CornerRadius="25"
+                       BackgroundColor="White"
+                       HeightRequest="40"
+                       WidthRequest="250"
+                       HorizontalOptions="Center"
+                       Padding="0">
+                    <SearchBar CancelButtonColor="Grey"
+                               Placeholder="Zoeken naar een vriend..."
+                               VerticalOptions="Center"
+                               TextColor="black"/>
+                </Frame>
+            </Grid>
+        </Grid>
+
+
+
+        <ListView x:Name="friendsListview"
+           SeparatorVisibility="None"
+           HasUnevenRows="True"
+           Background="White"
+           WidthRequest="370"
+           HeightRequest="550"
+           ItemsSource="{Binding Accounts}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="20" 
+                               HasShadow="True" 
+                               Padding="10" 
+                               BackgroundColor="Red" 
+                               Margin="10,10,10,10">
+                            <StackLayout>
+                                <Label Text="{Binding Name}" TextColor="White" />
+                                <Label Text="{Binding Email}" TextColor="White" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+    </StackLayout>
+</ContentPage>

@@ -2,11 +2,132 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PartyPalApp.AccountPage"
-             Title="AccountPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="TEST 1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="AccountPage"
+             BackgroundImageSource="background.png">
+
+    <StackLayout>
+        <Image x:Name="accountImage"
+               Source="account.png"
+               Aspect="AspectFill"
+               HeightRequest="160"
+               WidthRequest="160"
+               Margin="0,30,0,0"/>
+
+        <Frame x:Name="accountinformationFrame"
+               BackgroundColor="White" 
+               Padding="20" 
+               CornerRadius="10"
+               HorizontalOptions="Center"
+               WidthRequest="300">
+
+
+            <StackLayout>
+                <!-- Hardcoded Name  -->
+                <Label x:Name="accountNameLabel"
+                    Text="John Doe" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" />
+
+                <!-- Hardcoded Email -->
+                <Label Text="john.doe@example.com" 
+                       FontAttributes="Italic" 
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </Frame>
+
+        <Frame x:Name="accountButtonFrame"
+                BackgroundColor="White" 
+               Padding="20" 
+               CornerRadius="10"
+               HorizontalOptions="Center"
+               WidthRequest="300"
+               Margin="0,40,0,0"
+               BorderColor="Transparent">
+
+
+            <StackLayout>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnVriendenClicked"/>
+                </StackLayout.GestureRecognizers>
+
+                <StackLayout Orientation="Horizontal" 
+                             Margin="0,0,0,10">
+                    <Image Source="friends.png" 
+                           HeightRequest="50" 
+                           WidthRequest="50" />
+                    <Label Text="Vrienden" 
+                           VerticalOptions="Center" 
+                           Margin="20,0,0,0"/>
+                    <Image Source="right_arrow.png" 
+                           HeightRequest="30" 
+                           WidthRequest="30"
+                           Margin="90,0,0,0"/>
+                </StackLayout>
+                
+                <BoxView Color="Gray" 
+                         HeightRequest="1" 
+                         HorizontalOptions="FillAndExpand" 
+                         Margin="0,0,0,10"/>
+
+                <StackLayout Orientation="Horizontal" 
+                             Margin="0,0,0,10">
+                    <Image Source="faq.png" 
+                           HeightRequest="50" 
+                           WidthRequest="50" />
+                    <Label Text="FAQ" 
+                           VerticalOptions="Center" 
+                           Margin="20,0,0,0"/>
+                    <Image Source="right_arrow.png" 
+                           HeightRequest="30" 
+                           WidthRequest="30"
+                           Margin="122,0,0,0"/>
+                </StackLayout>
+                
+                <BoxView Color="Gray" 
+                         HeightRequest="1" 
+                         HorizontalOptions="FillAndExpand" 
+                         Margin="0,0,0,10"/>
+
+                <StackLayout Orientation="Horizontal" 
+                        Margin="0,0,0,10">
+                    <Image Source="review.png" 
+                       HeightRequest="50" 
+                       WidthRequest="50" />
+                    <Label Text="Mijn recenties" 
+                       VerticalOptions="Center" 
+                       Margin="20,0,0,0"/>
+                    <Image Source="right_arrow.png" 
+                       HeightRequest="30" 
+                       WidthRequest="30"
+                       Margin="60,0,0,0"/>
+                </StackLayout>
+
+                <BoxView Color="Gray" 
+                   HeightRequest="1" 
+                   HorizontalOptions="FillAndExpand" 
+                   Margin="0,0,0,10"/>
+
+                <StackLayout Orientation="Horizontal" 
+                             Margin="0,0,0,10">
+                    <Image Source="info.png" 
+                           HeightRequest="50" 
+                           WidthRequest="50" />
+                    <Label Text="AccountInformatie" 
+                           VerticalOptions="Center" 
+                           Margin="20,0,0,0"/>
+                    <Image Source="right_arrow.png" 
+                           HeightRequest="30" 
+                           WidthRequest="30"
+                           Margin="30,0,0,0"/>
+                </StackLayout>
+                
+              
+
+                
+                
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+
 </ContentPage>

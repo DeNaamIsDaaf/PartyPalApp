@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using PartyPalApp.MVVM.Models;
 using PartyPalApp.Repositories;
+using CommunityToolkit.Maui;
 
 namespace PartyPalApp
 {
@@ -11,6 +12,7 @@ namespace PartyPalApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
