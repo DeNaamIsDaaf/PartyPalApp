@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PartyPalApp.EventHomePage"
-             BackgroundImageSource="background.png">
+             BackgroundImageSource="background.png"
+             Title="Evenementen">
 
     <Grid
          RowDefinitions=".05*,.08*,.45*,.05*,.05*,.3*">

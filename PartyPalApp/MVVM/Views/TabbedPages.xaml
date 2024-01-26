@@ -12,10 +12,22 @@
             android:TabbedPage.IsSwipePagingEnabled="False">
 
 
-    <local:EventHomePage Title="Evenementen" IconImageSource="event.png" x:Name="eventPage"/>
-    <local:ReviewPage Title="Reviews" IconImageSource="review.png" x:Name="reviewPage"/>
-    <local:MainPage  Title="Home" IconImageSource="home.png" x:Name="homePage"/>
-    <local:MapPage Title="Plattegrond" IconImageSource="map.png" x:Name="mapPage"/>
-    <local:SettingsPage Title="Instellingen" IconImageSource="settings.png" x:Name="settingPage"/>
+    <TabbedPage.ToolbarItems>
+
+        <ToolbarItem Text="QrScanner"
+                  IconImageSource="qrscan2.png"
+                  Clicked="QrScannerClicked"/>
+
+        <ToolbarItem Text="Account"
+                  IconImageSource="account2.png"
+                  Clicked="AccountClicked"/>
+
+    </TabbedPage.ToolbarItems>
+    
+    <local:EventHomePage  IconImageSource="event.png" x:Name="eventPage"/>
+    <local:ReviewPage  IconImageSource="review.png" x:Name="reviewPage"/>
+    <local:MainPage   IconImageSource="home.png" x:Name="homePage"/>
+    <local:MapPage  IconImageSource="map.png" x:Name="mapPage"/>
+    <local:SettingsPage  IconImageSource="settings.png" x:Name="settingPage"/>
 
 </TabbedPage>

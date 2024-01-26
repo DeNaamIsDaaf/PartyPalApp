@@ -9,4 +9,14 @@ public partial class TabbedPages : TabbedPage
         // Set homepage as startpage
         CurrentPage = homePage;
     }
+
+    private async void QrScannerClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new QrPage());
+    }
+
+    private async void AccountClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AccountPage());
+    }
 }
