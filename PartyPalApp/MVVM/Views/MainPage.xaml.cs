@@ -37,32 +37,15 @@ namespace PartyPalApp
             speakersCollectionView.ItemsSource = Speakers;
         }
 
-        //private void InitializeEvents()
-        //{
-        //    // Add sample events to the collection
-        //    Events = new ObservableCollection<Event>
-        //    {
-        //        new Event("Event 1", "Description", "eventbackground.jpg"),
-        //        new Event("Event 2", "Description", "eventbackground.jpg"),
-        //        new Event("Event 3", "Description", "eventbackground.jpg"),
-        //        new Event("Event 4", "Description", "eventbackground.jpg"),
-        //        new Event("Event 5", "Description", "eventbackground.jpg"),
-        //        new Event("Event 6", "Description", "eventbackground.jpg"),
-        //        new Event("Event 7", "Description", "eventbackground.jpg"),
-        //        new Event("Event 8", "Description", "eventbackground.jpg"),
-        //    };
-        //}
-
-
         private void InitializeSpeakers()
         {
             // Add sample speakers to the collection
             Speakers = new ObservableCollection<Speaker>
             {
-                new Speaker("Speaker 1", "Title 1", "dotnet_bot.png"),
-                new Speaker("Speaker 2", "Title 2", "dotnet_bot.png"),
-                new Speaker("Speaker 3", "Title 3", "dotnet_bot.png"),
-                new Speaker("Speaker 4", "Title 4", "dotnet_bot.png"),
+                new Speaker("Speaker 1", "Title 1", "cookiemonster.png"),
+                new Speaker("Speaker 2", "Title 2", "elmo.png"),
+                new Speaker("Speaker 3", "Title 3", "beetle.png"),
+                new Speaker("Miel", "Title 4", "boef.png"),
             };
         }
     }

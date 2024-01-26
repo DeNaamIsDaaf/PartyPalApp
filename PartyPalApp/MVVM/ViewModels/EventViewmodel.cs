@@ -14,6 +14,8 @@ namespace PartyPalApp.ViewModels
     {
         public ObservableCollection<Event> Events { get; set; }
 
+        public ObservableCollection<Event> CloseEvents { get; set; }
+
         public EventViewmodel()
         {
             InitializeEvents();
@@ -32,7 +34,16 @@ namespace PartyPalApp.ViewModels
             };
 
             Events = new ObservableCollection<Event>(Events.OrderBy(e => e.Date));
+
+            CloseEvents = new ObservableCollection<Event>()
+            {
+                new Event { Title = "ZieDit Heerlen", Image =  "eventbackground.jpg", Date = DateTime.Now.AddDays(29) },
+                new Event { Title = "OpenDag Sittard", Image = "eventbackground.jpg", Date = DateTime.Now.AddDays(2) },
+                new Event { Title = "OpenDag Heerlen", Image = "eventbackground.jpg", Date = DateTime.Now.AddDays(2) },
+            };
         }
+
+
     }
 
 }
