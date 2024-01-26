@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PartyPalApp.ViewModels"
              x:Class="PartyPalApp.ReviewPage"
-             Title="ReviewPage"
+             Title="Reviews"
              BackgroundImageSource="background.png">
 
     <StackLayout>
