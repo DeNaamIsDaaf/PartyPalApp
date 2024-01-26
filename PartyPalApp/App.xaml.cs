@@ -11,7 +11,7 @@ namespace PartyPalApp
         {
             InitializeComponent();
             EventRepo = eventRepo;
-            MainPage = new NavigationPage(new TabbedPages());
+            MainPage = new NavigationPage(new OnBoardingPage());
         }
     }
 }
