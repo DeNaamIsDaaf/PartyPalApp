@@ -24,7 +24,7 @@
                        TextColor="black"/>
 
         </Grid>
-        <CarouselView
+        <CarouselView x:Name="EventCarousel"
             IndicatorView="indicatorView"
             Grid.Row="2"
             ItemsSource="{Binding Events}"

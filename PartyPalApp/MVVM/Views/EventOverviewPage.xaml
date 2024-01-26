@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PartyPalApp.EventOverviewPage"
-             Title="Event"
-             BackgroundColor="White">
+             Title="EventOverviewPage">
 
     <ScrollView>
         <StackLayout Margin="10">
@@ -26,10 +25,10 @@
 
                 <!-- Tweede kolom met een label -->
                 <Label Text="Dit event staat in het teken van de afstuurprojecten. Bekijk tijdens dit event de gevarieerde opdrachten van onze studenten!" 
-                       Grid.Row="0" Grid.Column="1" Margin="20,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" HeightRequest="150" WidthRequest="180" BackgroundColor="White" TextColor="Black"/>
+                   Grid.Row="0" Grid.Column="1" Margin="20,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" HeightRequest="150" WidthRequest="180" BackgroundColor="White" TextColor="Black"/>
 
                 <Label Text="Mario Gonzalez" FontAttributes="Bold"
-                       Grid.Row="1" VerticalOptions="Start" TextColor="Black"/>
+                   Grid.Row="1" VerticalOptions="Start" TextColor="Black"/>
             </Grid>
 
             <Frame HeightRequest="200" WidthRequest="340" BorderColor="Red" Margin="0,40,0,0">
@@ -85,4 +84,5 @@
             </VerticalStackLayout>
         </StackLayout>
     </ScrollView>
+    
 </ContentPage>
