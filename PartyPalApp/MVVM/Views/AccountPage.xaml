@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PartyPalApp.AccountPage"
-             Title="AccountPage">
+             Title="AccountPage"
+             BackgroundImageSource="background.png">
 
     <StackLayout>
         <Image x:Name="accountImage"
@@ -45,7 +46,10 @@
 
 
             <StackLayout>
-                
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnVriendenClicked"/>
+                </StackLayout.GestureRecognizers>
+
                 <StackLayout Orientation="Horizontal" 
                              Margin="0,0,0,10">
                     <Image Source="friends.png" 
