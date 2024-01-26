@@ -5,107 +5,148 @@
              Title="Hoofdpagina"
              BackgroundImageSource="background.png">
   
-    <ScrollView>
 
-        <StackLayout>
 
-            <Label x:Name="FavouritesLabel"
-                   Text="Favorieten"
-                   Margin="0,10,0,0"
-                   FontSize="Body"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"/>
+    <StackLayout>
+        <Border 
+            Margin="-2,-1,-2,0"
+            BackgroundColor="red" 
+            HeightRequest="100"
+            Stroke="Black">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,0,200,200"/>
+            </Border.StrokeShape>
 
-            <!-- CollectionView to display events -->
-            <CollectionView x:Name="eventsCollectionView"
-                        ItemsSource="{Binding Events}"
-                        HorizontalOptions="Center"
-                        Margin="0,0,0,10"
-                        SelectionMode="None">
+            <!-- Use a Grid to arrange the Label and Image -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="270"/>
+                    <!-- Label column -->
+                    <ColumnDefinition Width="100"/>
+                    <!-- Image column -->
+                </Grid.ColumnDefinitions>
 
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal" 
-                                       SnapPointsType="MandatorySingle" 
-                                       SnapPointsAlignment="Start" />
-                </CollectionView.ItemsLayout>
+                <!-- Label settings -->
+                <Label 
+                    FontSize="25" 
+                    TextColor="White" 
+                    FontAttributes="Bold"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Margin="50,0,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Welkom " TextColor="White" />
+                            <Span Text="Miel!" FontAttributes="Bold" TextColor="Black" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame CornerRadius="10" 
-                               BorderColor="Red"
-                               BackgroundColor="White" 
-                               Padding="10"
-                               HeightRequest="120"
-                               WidthRequest="180"
-                               Margin="10,10,0,10">
+                <!-- Image settings -->
+                <Image 
+                    Source="bell.png"
+                    HeightRequest="40"
+                    WidthRequest="40"
+                    Grid.Column="1"
+                    VerticalOptions="Center"/>
+            </Grid>
+        </Border>
+
+        <Label
+            Margin="25,30,25,10"
+            FontSize="16"
+            Text="Evenementen in de buurt"
+            FontAttributes="Bold"/>
+
+        <CollectionView ItemsSource="{Binding CloseEvents}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="25" Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="200" WidthRequest="300" Margin="10,0,0,10">
+                        <Border 
+                            HeightRequest="200"
+                            Stroke="Red"
+                            StrokeShape="RoundRectangle 30,30,30,30"
+                            WidthRequest="300">
+                            <Grid RowDefinitions=".2*,.6*,.2*">
+                                <Image 
+                                    Aspect="AspectFill" 
+                                    Source="{Binding Image}"
+                                    Opacity="0.6"
+                                    Grid.RowSpan ="3"/>
+                                <VerticalStackLayout Spacing="40" Grid.Row="1">
+                                    <Label 
+                                        Text="{Binding Title}"
+                                        FontSize="Large"
+                                        TextColor="White"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center">
+                                    </Label>
+                                    <Label 
+                                        Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"
+                                        FontSize="20"
+                                        TextColor="White"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center">
+                                    </Label>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label
+            Margin="25,30,25,10"
+            FontSize="16"
+            Text="Uitgelichte Sprekers"
+            FontAttributes="Bold"/>
+
+        <CollectionView x:Name="speakersCollectionView">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Margin="10,0,0,10">
+                        <Border 
+                            HeightRequest="150"
+                            StrokeShape="RoundRectangle 100,100,100,100"
+                            WidthRequest="150"
+                            Stroke="Transparent">
+                            <Image 
+                                Aspect="AspectFill" 
+                                Source="{Binding Image}"
+                                Opacity="0.6"/>
+                        </Border>
+
+                        <Frame Margin="0,5,0,0"  CornerRadius="20">
                             <StackLayout>
-                                <Label Text="{Binding Title}" 
-                                       TextColor="Black" 
-                                       HorizontalOptions="Center"
-                                       FontAttributes="Bold"/>
-                                <Label Text="{Binding Description}" 
-                                       TextColor="Black"/>
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontSize="16"
+                                    TextColor="Black"
+                                    HorizontalOptions="Center"/>
+                                <Label
+                                    Text="{Binding Description}"
+                                    FontSize="12"
+                                    TextColor="Black"
+                                    HorizontalOptions="Center"/>
                             </StackLayout>
                         </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
 
-          
-            <Button x:Name="NotificationButton"
-                    Text="Meldingen"
-                    HeightRequest="60"
-                    WidthRequest="300"
-                    Margin="0,20,0,0"
-                    Background="Red"
-                    FontAttributes="Bold"/>
-
-            <Label x:Name="RecommendedSpeakers"
-                   Text="Aanbevolen sprekers"
-                   FontSize="Body"
-                   FontAttributes="Bold"
-                   Margin="30,50,0,20"/>
-
-            <!-- CollectionView to display speakers -->
-            <CollectionView x:Name="speakersCollectionView"
-            ItemsSource="{Binding Speakers}"
-            HorizontalOptions="Center"
-            Margin="20,0,20,10"
-            SelectionMode="None">
-
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="2" />
-                </CollectionView.ItemsLayout>
-
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <!-- Use a Grid for each speaker -->
-                        <Grid HeightRequest="150" WidthRequest="150" Margin="10,10,0,10" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-
-                            <!-- Image -->
-                            <Image Grid.Row="0" Source="{Binding Image}"  MaximumHeightRequest="90" MaximumWidthRequest="140"/>
-
-                            <!-- Name and Description -->
-                            <StackLayout Grid.Row="1" HorizontalOptions="Center">
-                                <Label Text="{Binding Name}" TextColor="Black"  
-                                       FontAttributes="Bold"
-                                       FontSize="Small"/>
-                                <Label Text="{Binding Description}" TextColor="Black"/>
-                            </StackLayout>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
 
+    </StackLayout>
 
-        </StackLayout>
-
-    </ScrollView>
 
 </ContentPage>
