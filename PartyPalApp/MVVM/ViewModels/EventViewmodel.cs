@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 
 namespace PartyPalApp.ViewModels
@@ -16,9 +17,35 @@ namespace PartyPalApp.ViewModels
 
         public ObservableCollection<Event> CloseEvents { get; set; }
 
+        public Event CurrentEvent { get; set; }
+
+        public ICommand? AddOrUpdateCommand { get; set; }
+
+
         public EventViewmodel()
         {
-            InitializeEvents();
+            //InitializeEvents();
+            Refresh();
+            GenerateNewEvent();
+            AddOrUpdateCommand = new Command(async () =>
+            {
+                App.EventRepo.SaveEntity(CurrentEvent);
+                Console.WriteLine(App.EventRepo.StatusMessage);
+                GenerateNewEvent();
+                Refresh();
+            });
+        }
+
+
+        private void GenerateNewEvent()
+        {
+            CurrentEvent = new Event();
+        }
+
+        public void Refresh()
+        {
+            List<Event> eventsList = App.EventRepo.GetEntities();
+            Events = new ObservableCollection<Event>(eventsList);
         }
 
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartyPalApp.MVVM.Views.AdminPage"
+             Title="AdminPage">
+    <StackLayout>
+        <Label
+            Margin="20,20,0,0"
+            FontSize="15"
+            Text="Evenementen aanmaken"
+            FontAttributes="Bold"/>
+        <Frame
+            BackgroundColor="White" 
+            CornerRadius="10" 
+            Padding="10" 
+            Margin="20,20,20,20"
+            HorizontalOptions="FillAndExpand">
+            <StackLayout Spacing="10">
+                <Entry x:Name="EventTitleEntry" Margin="-5" Placeholder="Geef je Event een naam.." PlaceholderColor="Grey" Text="{Binding CurrentEvent.Title}"/>
+                <Entry x:Name="EventDescriptionEntry" Margin="-5" Placeholder="Event beschrijving..." PlaceholderColor="Grey" Text="{Binding CurrentEvent.Description}"/>
+                <Button x:Name="SelectEventImageButton" Text="Selecteer Afbeelding" Clicked="SelectEventImageButton_Clicked" BackgroundColor="White" TextColor="Black" BorderWidth="1" BorderColor="Black"/>
+                <Frame Margin="10">
+                    <Image x:Name="SelectedEventImage" HeightRequest="100" WidthRequest="100"/>
+                </Frame>
+                <DatePicker x:Name="EventDatePicker" Date="{Binding CurrentEvent.Date}"/>
+                
+                <Button Text="Event Opslaan" Clicked="OnSaveEventButton_Clicked"  Command="{Binding AddOrUpdateCommand}" BackgroundColor="Red"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

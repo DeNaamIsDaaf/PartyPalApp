@@ -14,4 +14,12 @@ public partial class EventHomePage : ContentPage
 		InitializeComponent();
 		BindingContext = viewModel;
 	}
+
+    protected override void OnAppearing()
+    {
+        viewModel.Refresh();
+        EventCarousel.ItemsSource = viewModel.Events;
+        EventListView.ItemsSource = viewModel.Events;
+
+    }
 }
