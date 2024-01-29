@@ -1,4 +1,5 @@
-﻿using PartyPalApp.Logic;
+﻿using CommunityToolkit.Maui.Core.Extensions;
+using PartyPalApp.Logic;
 using PartyPalApp.MVVM.Models;
 using SQLite;
 using System;

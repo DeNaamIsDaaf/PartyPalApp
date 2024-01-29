@@ -74,16 +74,16 @@
 
 
                                 <VerticalStackLayout Spacing="40" Grid.Row="1">
-                                    <Label 
+                                    <Label
                                         Text="{Binding Title}"
-                                        FontSize="Large"
+                                        FontSize="30"
                                         TextColor="White"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Center">
                                     </Label>
                                     <Label 
-                                        Text="{Binding Description}"
-                                        FontSize="35"
+                                         Text="{Binding Date, StringFormat='{0:dd-MM-yyyy}' }"
+                                        FontSize="25"
                                         TextColor="White"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Center">
@@ -113,6 +113,7 @@
 
 
         <ListView
+            x:Name="EventListView"
             Margin="0,-40,0,0"
             Grid.Row="5"
             SeparatorVisibility="None"
