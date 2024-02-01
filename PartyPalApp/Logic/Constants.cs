@@ -9,6 +9,7 @@ namespace PartyPalApp.Logic
 {
     public static class Constants
     {
+        public const string JOKE_RANDOM = "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,racist";
         private const string DBFileName = "PartyPaldb";
 
         public const SQLiteOpenFlags flags =
