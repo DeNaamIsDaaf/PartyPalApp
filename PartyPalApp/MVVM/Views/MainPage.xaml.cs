@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using PartyPalApp.MVVM.Models;
 using Microsoft.Maui.Controls;
 using PartyPalApp.ViewModels;
+using PartyPalApp.Logic;
 
 namespace PartyPalApp
 {
@@ -47,6 +48,42 @@ namespace PartyPalApp
                 new Speaker("Speaker 3", "Title 3", "beetle.png"),
                 new Speaker("Miel", "Title 4", "boef.png"),
             };
+        }
+
+        private async void JokeButtonGenerator_Clicked(object sender, EventArgs e)
+        {
+            List<Joke> dadJokes = await DadJokeLogic.GetRandomJoke();
+            DeliveryJokeLabel.Text = null;
+            JokeLabel.Text = null;
+
+            if (dadJokes != null && dadJokes.Count > 0)
+            {
+                if (dadJokes[0].type == "twopart")
+                {
+                    JokeLabel.Text = $"{dadJokes[0].setup}";
+
+                    // Delay for 2 seconds before showing the delivery part
+                    await Task.Delay(1200);
+
+                    DeliveryJokeLabel.Text += $"\n{dadJokes[0].delivery}";
+                    JokeFrame.IsVisible = true;
+                }
+                else if (dadJokes[0].type == "single")
+                {
+                    JokeLabel.Text = $"{dadJokes[0].joke}";
+                    JokeFrame.IsVisible = true;
+                }
+
+            else
+                {
+                    JokeLabel.Text = "Mop ophalen Mislukt.";
+                }
+            }
+        }
+
+        private async void ZieMeerLabel_Tapped(object sender, TappedEventArgs e)
+        {
+            await DisplayAlert("Geen extra functionaliteiten", "Er zijn geen andere functionaliteiten beschikbaar tijdens het wachten.", "OK");
         }
     }
 }
