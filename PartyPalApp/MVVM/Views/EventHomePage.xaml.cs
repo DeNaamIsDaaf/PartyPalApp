@@ -1,4 +1,5 @@
 
+using PartyPalApp.MVVM.Models;
 using PartyPalApp.MVVM.ViewModels;
 using PartyPalApp.ViewModels;
 using System.Collections.ObjectModel;
@@ -34,5 +35,13 @@ public partial class EventHomePage : ContentPage
         // Set the correct property for ListView.ItemsSource
         ActivityListView.ItemsSource = _activityViewModel.Activities;
 
+    }
+
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        if (e.Parameter is Event selectedEvent)
+        {
+            Navigation.PushAsync(new EventOverviewPage(selectedEvent));
+        }
     }
 }

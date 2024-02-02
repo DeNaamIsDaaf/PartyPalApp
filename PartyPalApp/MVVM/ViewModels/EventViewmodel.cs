@@ -1,5 +1,6 @@
 ﻿
 using PartyPalApp.MVVM.Models;
+using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 
 namespace PartyPalApp.ViewModels
 {
+    [AddINotifyPropertyChangedInterface]
     public class EventViewmodel
     {
         public ObservableCollection<Event> Events { get; set; }
@@ -19,6 +21,7 @@ namespace PartyPalApp.ViewModels
 
         public ICommand? AddOrUpdateCommand { get; set; }
         public ICommand? DeleteWithChildrenCommand { get; set; }
+        public ICommand? IncrementAttendanceCount {  get; set; }
 
 
         public EventViewmodel()
@@ -41,6 +44,13 @@ namespace PartyPalApp.ViewModels
                     Refresh();
                     GenerateNewEvent();
                 }
+            });
+
+            IncrementAttendanceCount = new Command(() =>
+            {
+                CurrentEvent.AttendanceCount++;
+                App.EventRepo.SaveEntity(CurrentEvent);
+                Refresh();
             });
         }
 

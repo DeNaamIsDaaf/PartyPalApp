@@ -20,5 +20,12 @@ namespace PartyPalApp.MVVM.Models
 
         [OneToMany]
         public List<Activity>? Activities { get; set; }
+
+        public int AttendanceCount { get; set; } = 0;
+
+        public double AttendanceProgress
+        {
+            get { return (double)AttendanceCount / 20; } // Alle events hebben een maximum van 20 Aangezien dit later is toegevoegd.
+        }
     }
 }
