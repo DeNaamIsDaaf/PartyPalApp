@@ -18,5 +18,6 @@ namespace PartyPalApp.Repositories
 
         // Delete 
         void DeleteEntity(T entity); // Delete op object
+        void DeleteEntityWithChildren(T entity);
     }
 }

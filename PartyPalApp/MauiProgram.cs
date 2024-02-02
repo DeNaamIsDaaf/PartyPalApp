@@ -22,6 +22,7 @@ namespace PartyPalApp
                 .UseBarcodeReader();
 
             builder.Services.AddSingleton<BaseRepository<Event>>();
+            builder.Services.AddSingleton<BaseRepository<Activity>>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

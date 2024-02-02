@@ -88,6 +88,18 @@ namespace PartyPalApp.Repositories
             }
         }
 
+        public void DeleteEntityWithChildren(T? entity)
+        {
+            try
+            {
+                connection.Delete(entity);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Error: {ex.Message}";
+            }
+        }
+
         // Dispose --> sluiten van connectie en bewaren
         public void Dispose()
         {

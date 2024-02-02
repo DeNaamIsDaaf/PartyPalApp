@@ -42,7 +42,7 @@ namespace PartyPalApp.MVVM.ViewModels
             {
                 Id = 3,
                 Image = "notificationonboard.png",
-                Title = "Herriner ons",
+                Title = "Herinner ons",
                 Description = "Mis nooit boeiend nieuws met de klik van een knop! Sta PartyPal toe je meldingen te sturen."
             });
         }
