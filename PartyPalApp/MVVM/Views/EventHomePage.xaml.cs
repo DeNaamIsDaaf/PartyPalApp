@@ -1,4 +1,5 @@
 
+using PartyPalApp.MVVM.ViewModels;
 using PartyPalApp.ViewModels;
 using System.Collections.ObjectModel;
 
@@ -7,19 +8,31 @@ namespace PartyPalApp;
 
 public partial class EventHomePage : ContentPage
 {
-	private EventViewmodel? viewModel;
+    private ActivityViewModel? _activityViewModel;
+    private EventViewmodel? _eventViewModel;
     public EventHomePage()
 	{
-		viewModel = new EventViewmodel(); 
-		InitializeComponent();
-		BindingContext = viewModel;
-	}
+        // Instantiate EventViewModel and ActivityViewModel before calling InitializeComponent()
+        _eventViewModel = new EventViewmodel();
+        _activityViewModel = new ActivityViewModel();
+        InitializeComponent();
+        // Set EventViewModel as the binding context for the entire page
+        BindingContext = _eventViewModel;
+
+        // Set ActivityViewModel as the binding context specifically for the ListView
+        ActivityListView.BindingContext = _activityViewModel;
+    }
 
     protected override void OnAppearing()
     {
-        viewModel.Refresh();
-        EventCarousel.ItemsSource = viewModel.Events;
-        EventListView.ItemsSource = viewModel.Events;
+        _eventViewModel.Refresh();
+        _activityViewModel.Refresh();
+
+        // Set the correct property for CarouselView.ItemsSource
+        EventCarousel.ItemsSource = _eventViewModel.Events;
+
+        // Set the correct property for ListView.ItemsSource
+        ActivityListView.ItemsSource = _activityViewModel.Activities;
 
     }
 }

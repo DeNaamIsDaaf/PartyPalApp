@@ -3,29 +3,152 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PartyPalApp.MVVM.Views.AdminPage"
              Title="AdminPage">
-    <StackLayout>
-        <Label
-            Margin="20,20,0,0"
-            FontSize="15"
-            Text="Evenementen aanmaken"
-            FontAttributes="Bold"/>
-        <Frame
-            BackgroundColor="White" 
-            CornerRadius="10" 
-            Padding="10" 
-            Margin="20,20,20,20"
-            HorizontalOptions="FillAndExpand">
-            <StackLayout Spacing="10">
-                <Entry x:Name="EventTitleEntry" Margin="-5" Placeholder="Geef je Event een naam.." PlaceholderColor="Grey" Text="{Binding CurrentEvent.Title}"/>
-                <Entry x:Name="EventDescriptionEntry" Margin="-5" Placeholder="Event beschrijving..." PlaceholderColor="Grey" Text="{Binding CurrentEvent.Description}"/>
-                <Button x:Name="SelectEventImageButton" Text="Selecteer Afbeelding" Clicked="SelectEventImageButton_Clicked" BackgroundColor="White" TextColor="Black" BorderWidth="1" BorderColor="Black"/>
-                <Frame Margin="10">
-                    <Image x:Name="SelectedEventImage" HeightRequest="100" WidthRequest="100"/>
-                </Frame>
-                <DatePicker x:Name="EventDatePicker" Date="{Binding CurrentEvent.Date}"/>
-                
-                <Button Text="Event Opslaan" Clicked="OnSaveEventButton_Clicked"  Command="{Binding AddOrUpdateCommand}" BackgroundColor="Red"/>
-            </StackLayout>
-        </Frame>
-    </StackLayout>
+    <ScrollView>
+        <StackLayout>
+            <Label
+                Margin="20,20,0,0"
+                FontSize="15"
+                Text="Evenementen aanmaken"
+                FontAttributes="Bold"/>
+            <Frame
+                BackgroundColor="White" 
+                CornerRadius="10" 
+                Padding="10" 
+                Margin="20,20,20,20"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10">
+                    <Entry x:Name="EventTitleEntry" Margin="-5" Placeholder="Geef je Event een naam.." PlaceholderColor="Grey" Text="{Binding CurrentEvent.Title}"/>
+                    <Entry x:Name="EventDescriptionEntry" Margin="-5" Placeholder="Event beschrijving..." PlaceholderColor="Grey" Text="{Binding CurrentEvent.Description}"/>
+                    <Button x:Name="SelectEventImageButton" Text="Selecteer Afbeelding" Clicked="SelectEventImageButton_Clicked" BackgroundColor="White" TextColor="Black" BorderWidth="1" BorderColor="Black"/>
+                    <Frame Margin="10">
+                        <Image x:Name="SelectedEventImage" HeightRequest="100" WidthRequest="100"/>
+                    </Frame>
+                    <DatePicker x:Name="EventDatePicker" Date="{Binding CurrentEvent.Date}"/>
+
+                    <Button Text="Event Opslaan" Clicked="OnSaveEventButton_Clicked"  Command="{Binding AddOrUpdateCommand}" BackgroundColor="Red"/>
+                </StackLayout>
+            </Frame>
+
+            <Label
+                Margin="20,20,0,0"
+                FontSize="15"
+                Text="Evenementen bijwerken"
+                FontAttributes="Bold"/>
+                        <Frame
+                BackgroundColor="White" 
+                CornerRadius="10" 
+                Padding="10" 
+                Margin="20,20,20,20"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10">
+                    <HorizontalStackLayout>
+                        <Label Text="Geselecteerd evenement:" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        <Picker x:Name="UpdateEventPicker"
+                                Title="Selecteer een Event"
+                                ItemsSource="{Binding Events}"
+                                TextColor="Black"
+                                ItemDisplayBinding="{Binding Title}"
+                                SelectedItem="{Binding CurrentEvent}"
+                                SelectedIndexChanged="UpdateEventPicker_SelectedIndexChanged"/>
+                        <Label Text="▼" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    <Entry x:Name="UpdateEventTitleEntry" Margin="-5" Placeholder="Titel van je Event bijwerken.." PlaceholderColor="Grey" Text="{Binding CurrentEvent.Title}"/>
+                    <Entry x:Name="UpdateEventDescriptionEntry" Margin="-5" Placeholder="Event beschrijving bijwerken..." PlaceholderColor="Grey" Text="{Binding CurrentEvent.Description}"/>
+                    <Button x:Name="UpdateSelectedEventImageButton" Text="Selecteer Afbeelding" Clicked="UpdateSelectEventImageButton_Clicked" BackgroundColor="White" TextColor="Black" BorderWidth="1" BorderColor="Black"/>
+                    <Frame Margin="10">
+                        <Image x:Name="UpdatedSelectedEventImage" HeightRequest="100" WidthRequest="100"/>
+                    </Frame>
+                    <DatePicker x:Name="UpdateEventDatePicker" Date="{Binding CurrentEvent.Date}"/>
+
+                    <Button x:Name="UpdateEvent" Text="Event bijwerken" Clicked="UpdateEvent_Clicked" Command="{Binding AddOrUpdateCommand}" BackgroundColor="Red"/>
+                </StackLayout>
+            </Frame>
+
+            <Label
+                Margin="20,20,0,0"
+                FontSize="15"
+                Text="Evenement Verwijderen"
+                FontAttributes="Bold"/>
+                        <Frame
+                BackgroundColor="White" 
+                CornerRadius="10" 
+                Padding="10" 
+                Margin="20,20,20,20"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10">
+                    <Picker x:Name="RemoveEventPicker" Title="Selecteer een Evenement" ItemsSource="{Binding Events}" TextColor="Black" ItemDisplayBinding="{Binding Title}" SelectedItem="{Binding CurrentActivity.ParentEvent, Mode=TwoWay}"/>
+                    <Button x:Name="RemoveEventButton" Text="Evenement Verwijderen" Clicked="RemoveEventButton_Clicked"  BackgroundColor="Red"/>
+                </StackLayout>
+            </Frame>
+
+            <Label
+                Margin="20,20,0,0"
+                FontSize="15"
+                Text="Activiteiten toevoegen"
+                FontAttributes="Bold"/>
+            <Frame
+                BackgroundColor="White" 
+                CornerRadius="10" 
+                Padding="10" 
+                Margin="20,20,20,20"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10">
+                    <Entry x:Name="ActivityNameEntry" Margin="-5" Placeholder="Geef de activiteit een naam.." PlaceholderColor="Grey" Text="{Binding CurrentActivity.Name}"/>
+                    <TimePicker x:Name="ActivityStartTimePicker" Time="{Binding CurrentActivity.StartTime, Mode=TwoWay}" />
+                    <TimePicker x:Name="ActivityEndTimePicker" Time="{Binding CurrentActivity.EndTime, Mode=TwoWay}" />
+                    <!-- Add a Picker to select the associated event -->
+                    <Picker x:Name="EventPicker" Title="Selecteer een evenement" ItemsSource="{Binding Events}" ItemDisplayBinding="{Binding Title}" SelectedItem="{Binding CurrentActivity.ParentEvent, Mode=TwoWay}"/>
+                    <Button Text="Activiteit Opslaan" Clicked="OnSaveActivityButton_Clicked" BackgroundColor="Red"/>
+                </StackLayout>
+            </Frame>
+
+            <Label
+                Margin="20,20,0,0"
+                FontSize="15"
+                Text="Activiteiten Verwijderen"
+                FontAttributes="Bold"/>
+                        <Frame
+                BackgroundColor="White" 
+                CornerRadius="10" 
+                Padding="10" 
+                Margin="20,20,20,20"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10">
+                    <Picker x:Name="ActivityPicker" Title="Selecteer een Activiteit" ItemsSource="{Binding Activities}" TextColor="Black" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding CurrentActivity.ParentEvent, Mode=TwoWay}"/>
+                    <Button x:Name="RemoveActivityButton" Text="Activiteit Verwijderen" Clicked="RemoveActivityButton_Clicked"  BackgroundColor="Red"/>
+                </StackLayout>
+            </Frame>
+
+            <Label
+                Margin="20,20,0,0"
+                FontSize="15"
+                Text="Activiteit bijwerken"
+                FontAttributes="Bold"/>
+            <Frame
+                BackgroundColor="White" 
+                CornerRadius="10" 
+                Padding="10" 
+                Margin="20,20,20,20"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="10">
+                    <HorizontalStackLayout>
+                        <Label Text="Geselecteerde activiteit:" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        <Picker x:Name="UpdateActivityPicker"
+                                Title="Selecteer een Activiteit"
+                                ItemsSource="{Binding Activities}"
+                                TextColor="Black"
+                                ItemDisplayBinding="{Binding Name}"
+                                SelectedItem="{Binding CurrentActivity}"
+                                SelectedIndexChanged="UpdateActivityPicker_SelectedIndexChanged"/>
+                        <Label Text="▼" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    <Entry x:Name="UpdateActivityNameEntry" Margin="-5" Placeholder="Geef de activiteit een naam.." PlaceholderColor="Grey" Text="{Binding CurrentActivity.Name}"/>
+                    <TimePicker x:Name="UpdateActivityStartTimePicker" Time="{Binding CurrentActivity.StartTime, Mode=TwoWay}" />
+                    <TimePicker x:Name="UpdateActivityEndTimePicker" Time="{Binding CurrentActivity.EndTime, Mode=TwoWay}" />
+                    <Button x:Name="UpdateActivity" Text="Activiteit bijwerken" Clicked="UpdateActivity_Clicked" BackgroundColor="Red"/>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

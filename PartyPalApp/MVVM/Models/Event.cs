@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,5 +17,8 @@ namespace PartyPalApp.MVVM.Models
         public string? Description { get; set; }
         public string? Image { get; set; }
         public DateTime Date { get; set; }
+
+        [OneToMany]
+        public List<Activity>? Activities { get; set; }
     }
 }
