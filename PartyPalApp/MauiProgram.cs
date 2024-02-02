@@ -2,6 +2,7 @@
 using PartyPalApp.MVVM.Models;
 using PartyPalApp.Repositories;
 using CommunityToolkit.Maui;
+using ZXing.Net.Maui.Controls;
 
 namespace PartyPalApp
 {
@@ -17,7 +18,8 @@ namespace PartyPalApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .UseBarcodeReader();
 
             builder.Services.AddSingleton<BaseRepository<Event>>();
 #if DEBUG
