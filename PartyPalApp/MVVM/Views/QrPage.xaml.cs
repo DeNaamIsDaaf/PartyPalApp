@@ -29,6 +29,7 @@ namespace PartyPalApp
                 {
                     Hiddengrid.IsVisible = true;
                     Hiddengrid2.IsVisible = false; 
+
                 });
             }
             else if (scannedValue == "https://qr.codes/mcEB7d") 

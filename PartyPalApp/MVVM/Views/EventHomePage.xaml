@@ -47,48 +47,53 @@
                             Stroke="Black"
                             StrokeShape="RoundRectangle 30,30,30,30"
                             WidthRequest="300">
-                            <Grid RowDefinitions=".2*,.6*,.2*">
-                                <Image 
-                                    Aspect="AspectFill" 
-                                    Source="{Binding Image}"
-                                    Grid.RowSpan ="3"/>
+                            <Frame x:Name="CarouselItem" Margin="-25">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+                                <Grid RowDefinitions=".2*,.6*,.2*">
+                                    <Image 
+                                            Aspect="AspectFill" 
+                                            Source="{Binding Image}"
+                                            Grid.RowSpan ="3"/>
 
-                                <RoundRectangle
-                                    Grid.RowSpan="3"
-                                    CornerRadius="30"
-                                    HeightRequest="300"
-                                    WidthRequest="300"
-                                    Opacity=".7">
-                                    <RoundRectangle.Fill>
-                                        <LinearGradientBrush EndPoint="0,1">
-                                            <GradientStop Offset="0" Color="#030005"></GradientStop>
-                                            <!-- Darker color at the top -->
-                                            <GradientStop Offset="0.3" Color="#030005"></GradientStop>
-                                            <!-- Middle color -->
-                                            <GradientStop Offset="1" Color="Transparent"></GradientStop>
-                                            <!-- Darker color at the bottom -->
-                                        </LinearGradientBrush>
-                                    </RoundRectangle.Fill>
-                                </RoundRectangle>
+                                    <RoundRectangle
+                                            Grid.RowSpan="3"
+                                            CornerRadius="30"
+                                            HeightRequest="300"
+                                            WidthRequest="300"
+                                            Opacity=".7">
+                                        <RoundRectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0,1">
+                                                <GradientStop Offset="0" Color="#030005"></GradientStop>
+                                                <!-- Darker color at the top -->
+                                                <GradientStop Offset="0.3" Color="#030005"></GradientStop>
+                                                <!-- Middle color -->
+                                                <GradientStop Offset="1" Color="Transparent"></GradientStop>
+                                                <!-- Darker color at the bottom -->
+                                            </LinearGradientBrush>
+                                        </RoundRectangle.Fill>
+                                    </RoundRectangle>
 
 
-                                <VerticalStackLayout Spacing="40" Grid.Row="1">
-                                    <Label
-                                        Text="{Binding Title}"
-                                        FontSize="30"
-                                        TextColor="White"
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Center">
-                                    </Label>
-                                    <Label 
-                                         Text="{Binding Date, StringFormat='{0:dd-MM-yyyy}' }"
-                                        FontSize="25"
-                                        TextColor="White"
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Center">
-                                    </Label>
-                                </VerticalStackLayout>
-                            </Grid>
+                                    <VerticalStackLayout Spacing="40" Grid.Row="1">
+                                        <Label
+                                                Text="{Binding Title}"
+                                                FontSize="30"
+                                                TextColor="White"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center">
+                                        </Label>
+                                        <Label 
+                                                 Text="{Binding Date, StringFormat='{0:dd-MM-yyyy}' }"
+                                                FontSize="25"
+                                                TextColor="White"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center">
+                                        </Label>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
                             <Border.Shadow>
                                 <Shadow
                                     Brush="Black"

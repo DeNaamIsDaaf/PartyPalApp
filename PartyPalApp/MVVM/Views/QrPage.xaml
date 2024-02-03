@@ -23,7 +23,9 @@
                 StrokeShape="RoundRectangle 30,30,30,30"
                 WidthRequest="300">
                 <Grid RowDefinitions=".2*,.6*,.2*">
-                
+                  
+                    <Image Source="ziedit2024.png" Aspect="AspectFill" Grid.RowSpan="3" />
+
                     <RoundRectangle
                         Grid.RowSpan="3"
                         CornerRadius="30"
@@ -65,6 +67,7 @@
                         HorizontalOptions="Center">
                         </Label>
                         </VerticalStackLayout>
+
                 </Grid>
                 <Border.Shadow>
                     <Shadow
@@ -87,7 +90,7 @@
             StrokeShape="RoundRectangle 30,30,30,30"
             WidthRequest="300"> 
                 <Grid RowDefinitions=".2*,.6*,.2*">
-
+                    <Image Source="opendag.png" Aspect="AspectFill" Grid.RowSpan="3" />
                     <RoundRectangle
                     Grid.RowSpan="3"
                     CornerRadius="30"
@@ -128,6 +131,16 @@
                         VerticalOptions="Center"
                         HorizontalOptions="Center">
                         </Label>
+
+                        <Label 
+                        x:Name="Geluktlabel2"
+                        Text="De qr-code is succesvol gescand"
+                        FontSize="15"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                        </Label>
+
                     </VerticalStackLayout>
                 </Grid>
                 <Border.Shadow>

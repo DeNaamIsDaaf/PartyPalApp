@@ -1,87 +1,139 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PartyPalApp.EventOverviewPage">
+             x:Class="PartyPalApp.EventOverviewPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="background.png">
 
     <ScrollView>
-        <StackLayout Margin="10">
-            <Label Text="Minor MD" TextColor="Black" Margin="0,10,0,40" FontSize="36" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
-            <Grid RowSpacing="10">
-                <!-- Rijen en kolommen -->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <!-- Eerste kolom met een afbeelding -->
-                <Frame HeightRequest="100" WidthRequest="100" VerticalOptions="Start">
-                    <Image Source="kamal.jpeg" Grid.Row="0" Grid.Column="0" HeightRequest="100" WidthRequest="100" Aspect="AspectFit"/>
+        <StackLayout>
+            <Button Text="x"
+                    TextColor="Red"
+                    FontSize="30"
+                    HorizontalOptions="End"
+                    BackgroundColor="Transparent"
+                    Margin="0,0,0,-20"
+                    Clicked="CloseButton_Clicked"/>
+            <AbsoluteLayout>
+                <Frame Padding="-10"
+           Margin="10,60,10,10"
+           VerticalOptions="Center"
+           AbsoluteLayout.LayoutBounds="0,0,1,1"
+           AbsoluteLayout.LayoutFlags="All">
+                    <Image Source="{Binding Image}"
+               Opacity="0.4"
+               HeightRequest="150"
+               Aspect="AspectFill"/>
                 </Frame>
 
-                <!-- Tweede kolom met een label -->
-                <Label Text="Dit event staat in het teken van de afstuurprojecten. Bekijk tijdens dit event de gevarieerde opdrachten van onze studenten!" 
-                   Grid.Row="0" Grid.Column="1" Margin="20,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" HeightRequest="150" WidthRequest="180" BackgroundColor="White" TextColor="Black"/>
+                <Label Text="{Binding Title}"
+           TextColor="Black"
+           Margin="20,30,10,30"
+           FontSize="30"
+           FontAttributes="Bold"
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="Center"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           AbsoluteLayout.LayoutBounds="0.5,0.5,AutoSize,AutoSize" />
+            </AbsoluteLayout>
 
-                <Label Text="Mario Gonzalez" FontAttributes="Bold"
-                   Grid.Row="1" VerticalOptions="Start" TextColor="Black"/>
-            </Grid>
 
-            <Frame HeightRequest="200" WidthRequest="340" BorderColor="Red" Margin="0,40,0,0">
-                <Image Source="zuyd.png" HeightRequest="150" WidthRequest="200" Aspect="AspectFit" Margin="10,0,0,0"></Image>
+
+
+            <StackLayout Spacing="10">
+                <Frame CornerRadius="100" HeightRequest="100" WidthRequest="100">
+                    <Image Source="elmo.png" Aspect="AspectFill"/>
+                </Frame>
+                <Frame>
+                    <StackLayout Spacing="10">
+                        <Label Text="Gepresenteerd door: Elmo" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Description}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <Frame
+                Margin="10,50,10,50"
+                Padding="0">
+                <StackLayout
+                    Spacing="10"
+                    Margin="10,10,10,20">
+                    <HorizontalStackLayout Spacing="150">
+                        <Label Text="Drukte:" FontAttributes="Bold"/>
+                        <Label Text="Datum:" FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="50">
+                        <ProgressBar x:Name="ProgressBarRegisteredVisitors" WidthRequest="150" Progress="{Binding AttendanceProgress}" />
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Date.Day}" />
+                                    <Span Text=" " />
+                                    <Span Text="{Binding Date, StringFormat='{0:MMMM}'}" />
+                                    <Span Text=" "/>
+                                    <Span Text="{Binding Date.Year}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="130" Margin="0,-18,0,0">
+                        <Label Text="0"/>
+                        <Label Text="200"/>
+                    </HorizontalStackLayout>
+                </StackLayout>
             </Frame>
 
-            <Grid Margin="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25"/>
-                    <RowDefinition Height="75"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+            <Button
+                x:Name="SignInButton"
+                Text="Inschrijven"
+                HeightRequest="40"
+                WidthRequest="150"
+                Margin="0,0,0,80"
+                BackgroundColor="Red"
+                Clicked="SignInButton_Clicked"/>
 
-                <Label Text="Drukte:" Grid.Row="0" Grid.Column="0" HeightRequest="100" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="White" TextColor="Black" FontAttributes="Bold"></Label>
-                <Label Text="Tijd:" Grid.Row="0" Grid.Column="1" HeightRequest="100" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="White" TextColor="Black" FontAttributes="Bold"></Label>
-                <Label Text="Maximaal 80 personen" Grid.Row="1" Grid.Column="0" HeightRequest="100" WidthRequest="200" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="White" TextColor="Black"></Label>
-                <Label Text="12:00 - 13:00 uur" Grid.Row="1" Grid.Column="1" HeightRequest="100" WidthRequest="150" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="White" TextColor="Black"></Label>
-            </Grid>
+            <Label
+                 Grid.Row="4"
+                 FontSize="Body"
+                 HorizontalOptions="Center"
+                 Text="Recensies"
+                 FontAttributes="Bold"/>
 
-            <Label Text="Recensies" TextColor="Black" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+            <Frame Margin="10,5,10,10" CornerRadius="20" BorderColor="Transparent" BackgroundColor="White">
 
-            <VerticalStackLayout>
-                <Frame BorderColor="Red" BackgroundColor="White" Margin="0,20,0,10">
-                    <StackLayout>
-                        <Label Text="Jo Bonten" TextColor="Black" FontAttributes="Bold"></Label>
-                        <Label Text="Wat een fantastisch event!" TextColor="Black"></Label>
-                    </StackLayout>
-                </Frame>
+                <VerticalStackLayout
+                                Margin="10,0,10,0">
+                    <Frame BorderColor="Red" BackgroundColor="red" Margin="0,20,0,10">
+                        <StackLayout>
+                            <Label Text="Jo Bonten" TextColor="White" FontAttributes="Bold"></Label>
+                            <Label Text="Wat een fantastisch event!" TextColor="white"></Label>
+                        </StackLayout>
+                    </Frame>
 
-                <Frame BorderColor="Red" BackgroundColor="White" Margin="0,0,0,10">
-                    <StackLayout>
-                        <Label Text="Bon Boclat" TextColor="Black" FontAttributes="Bold"></Label>
-                        <Label Text="Dit event was erg leerzaam!" TextColor="Black"></Label>
-                    </StackLayout>
-                </Frame>
+                    <Frame BorderColor="Red" BackgroundColor="red" Margin="0,0,0,10">
+                        <StackLayout>
+                            <Label Text="Bon Boclat" TextColor="white" FontAttributes="Bold"></Label>
+                            <Label Text="Dit event was erg leerzaam!" TextColor="white"></Label>
+                        </StackLayout>
+                    </Frame>
 
-                <Frame BorderColor="Red" BackgroundColor="White" Margin="0,0,0,10">
-                    <StackLayout>
-                        <Label Text="Sjors Peters" TextColor="Black" FontAttributes="Bold"></Label>
-                        <Label Text="De catering was goed verzorgd!" TextColor="Black"></Label>
-                    </StackLayout>
-                </Frame>
+                    <Frame BorderColor="Red" BackgroundColor="Red" Margin="0,0,0,10">
+                        <StackLayout>
+                            <Label Text="Sjors Peters" TextColor="white" FontAttributes="Bold"></Label>
+                            <Label Text="De catering was goed verzorgd!" TextColor="white"></Label>
+                        </StackLayout>
+                    </Frame>
 
-                <Frame BorderColor="Red" BackgroundColor="White" Margin="0,0,0,10">
-                    <StackLayout>
-                        <Label Text="Henk Veerman" TextColor="Black" FontAttributes="Bold"></Label>
-                        <Label Text="Als voetballer maak ik veel goals, het bezoeken van dit event was daar een van!" TextColor="Black"></Label>
-                    </StackLayout>
-                </Frame>
-            </VerticalStackLayout>
+                    <Frame BorderColor="Red" BackgroundColor="Red" Margin="0,0,0,10">
+                        <StackLayout>
+                            <Label Text="Henk Veerman" TextColor="white" FontAttributes="Bold"></Label>
+                            <Label Text="Als voetballer maak ik veel goals, het bezoeken van dit event was daar een van!" TextColor="white"></Label>
+                        </StackLayout>
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
         </StackLayout>
     </ScrollView>
-    
+
 </ContentPage>
