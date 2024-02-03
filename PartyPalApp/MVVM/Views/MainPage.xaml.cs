@@ -43,10 +43,10 @@ namespace PartyPalApp
             // Add sample speakers to the collection
             Speakers = new ObservableCollection<Speaker>
             {
-                new Speaker("Speaker 1", "Title 1", "cookiemonster.png"),
-                new Speaker("Speaker 2", "Title 2", "elmo.png"),
-                new Speaker("Speaker 3", "Title 3", "beetle.png"),
-                new Speaker("Miel", "Title 4", "boef.png"),
+                new Speaker("Koekie Monster", "Over koekjes", "cookiemonster.png"),
+                new Speaker("Elmo", "Over liefde", "elmo.png"),
+                new Speaker("Beetle", "Over de natuure", "beetle.png"),
+                new Speaker("Boef", "Over Straattaal", "boef.png"),
             };
         }
 
