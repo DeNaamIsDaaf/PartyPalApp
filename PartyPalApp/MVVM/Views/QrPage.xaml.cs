@@ -28,8 +28,8 @@ namespace PartyPalApp
                 Dispatcher.Dispatch(() =>
                 {
                     Hiddengrid.IsVisible = true;
-                    Hiddengrid2.IsVisible = false;
-                    Hiddengrid3.IsVisible = false;
+                    Hiddengrid2.IsVisible = false; 
+
                 });
             }
             else if (scannedValue == "https://qr.codes/mcEB7d") 
@@ -38,7 +38,6 @@ namespace PartyPalApp
                 {
                     Hiddengrid.IsVisible = false; 
                     Hiddengrid2.IsVisible = true;
-                    Hiddengrid3.IsVisible = false;
                 });
             }
             else
@@ -47,7 +46,6 @@ namespace PartyPalApp
                 {
                     Hiddengrid.IsVisible = false;
                     Hiddengrid2.IsVisible = false;
-                    Hiddengrid3.IsVisible = true;
                 });
             }
         }

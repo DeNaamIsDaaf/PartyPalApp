@@ -2,34 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PartyPalApp.QrPage"
-             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
-             BackgroundImageSource="background.png">
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls">
 
     <StackLayout>
-        <Label
-            Margin="20,20,20,0"
-            FontSize="Body"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            Text="Scan de QR-Code bij binnenkomst van het event"
-            TextColor="Black"
-            FontAttributes="Bold"/>
-        <Frame
-            Margin="0,50,0,0"
-            CornerRadius="30"
-            HeightRequest="300"
-            WidthRequest="300">
-            <zxing:CameraBarcodeReaderView x:Name="barcodeReader"
-                BarcodesDetected="barcodeReader_BarcodesDetected"
-                WidthRequest="300"
-                HeightRequest="330"
-                Margin="0,90,0,120"/>
-        </Frame>
+        <zxing:CameraBarcodeReaderView x:Name="barcodeReader"
+            BarcodesDetected="barcodeReader_BarcodesDetected"
+            HeightRequest="100"
+            WidthRequest="200"
+            VerticalOptions="Start"
+            Margin="0,90,0,120"/>
 
         <!-- Show barcode 1(hidden at first) -->
-        <Grid 
-            Margin="0,30,0,0"
-            x:Name="Hiddengrid"
+        <Grid x:Name="Hiddengrid"
               IsVisible="false">
             <Border
                 Grid.RowSpan="3"
@@ -39,7 +23,9 @@
                 StrokeShape="RoundRectangle 30,30,30,30"
                 WidthRequest="300">
                 <Grid RowDefinitions=".2*,.6*,.2*">
+                  
                     <Image Source="ziedit2024.png" Aspect="AspectFill" Grid.RowSpan="3" />
+
                     <RoundRectangle
                         Grid.RowSpan="3"
                         CornerRadius="30"
@@ -80,15 +66,8 @@
                         VerticalOptions="Center"
                         HorizontalOptions="Center">
                         </Label>
-                        <Label 
-                        x:Name="Geluktlabel1"
-                        Text="De qr-code is succesvol gescand"
-                        FontSize="15"
-                        TextColor="White"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center">
-                        </Label>
-                    </VerticalStackLayout>
+                        </VerticalStackLayout>
+
                 </Grid>
                 <Border.Shadow>
                     <Shadow
@@ -101,9 +80,7 @@
         </Grid>
 
         <!-- Show barcode 2(hidden at first) -->
-        <Grid 
-            Margin="0,30,0,0"
-            x:Name="Hiddengrid2"
+        <Grid x:Name="Hiddengrid2"
             IsVisible="false">
             <Border
             Grid.RowSpan="3"
@@ -139,7 +116,7 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Center">
                         <Label x:Name="titleLabel2"
-                        Text="Open Dag 2024"
+                        Text="ZieDit 2025"
                         FontSize="30"
                         FontAttributes="Bold"
                         TextColor="White"
@@ -148,12 +125,13 @@
                         </Label>
                         <Label 
                         x:Name="datelabel2"
-                        Text="18-11-2024"
+                        Text="01-01-2025"
                         FontSize="25"
                         TextColor="White"
                         VerticalOptions="Center"
                         HorizontalOptions="Center">
                         </Label>
+
                         <Label 
                         x:Name="Geluktlabel2"
                         Text="De qr-code is succesvol gescand"
@@ -162,6 +140,7 @@
                         VerticalOptions="Center"
                         HorizontalOptions="Center">
                         </Label>
+
                     </VerticalStackLayout>
                 </Grid>
                 <Border.Shadow>
@@ -170,79 +149,6 @@
                     Opacity=".7"
                     Radius="50"
                     Offset="0,0"/>
-                </Border.Shadow>
-            </Border>
-        </Grid>
-
-
-        <Grid 
-            Margin="0,30,0,0"
-            x:Name="Hiddengrid3"
-            IsVisible="false">
-                    <Border
-            Grid.RowSpan="3"
-            BackgroundColor="Red"
-            HeightRequest="250"
-            Stroke="Black"
-            StrokeShape="RoundRectangle 30,30,30,30"
-            WidthRequest="300">
-                <Grid RowDefinitions=".2*,.6*,.2*">
-
-                    <RoundRectangle
-                        Grid.RowSpan="3"
-                        CornerRadius="30"
-                        HeightRequest="300"
-                        WidthRequest="300"
-                        Opacity=".7">
-                        <RoundRectangle.Fill>
-                            <LinearGradientBrush EndPoint="0,1">
-
-                                <GradientStop Offset="0" Color="#030005"></GradientStop>
-
-                                <GradientStop Offset="0.3" Color="#030005"></GradientStop>
-
-                                <GradientStop Offset="1" Color="Transparent"></GradientStop>
-
-                            </LinearGradientBrush>
-                        </RoundRectangle.Fill>
-                    </RoundRectangle>
-
-                    <VerticalStackLayout 
-                        Spacing="20" 
-                        Grid.Row="1"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center">
-                        <Label
-                            Text="ONGELDIGE QR"
-                            FontSize="30"
-                            FontAttributes="Bold"
-                            TextColor="White"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Center">
-                        </Label>
-                        <Label 
-                            Text="-"
-                            FontSize="25"
-                            TextColor="White"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Center">
-                        </Label>
-                        <Label 
-                        x:Name="Geluktlabel3"
-                        Text="De qr-code is NIET succesvol gescand"
-                        FontSize="15"
-                        TextColor="White"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center">
-                        </Label>
-                    </VerticalStackLayout>
-                </Grid>
-                <Border.Shadow>
-                    <Shadow
-                        Brush="Black"
-                        Opacity=".7"
-                        Radius="50"
-                        Offset="0,0"/>
                 </Border.Shadow>
             </Border>
         </Grid>
