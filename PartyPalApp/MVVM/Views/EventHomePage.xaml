@@ -149,7 +149,7 @@
                                             <!-- Separate the event name more to the left -->
                                             <StackLayout Margin="30,0,0,0" VerticalOptions="Center">
                                                 <Label VerticalOptions="Center" FontSize="17" Text="{Binding Name}" WidthRequest="250"/>
-                                                <Label VerticalOptions="Center" FontSize="15" Text="{Binding EventId}" FontAttributes="Bold" TextColor="Black"/>
+                                                <Label VerticalOptions="Center" FontSize="15" FontAttributes="Bold" TextColor="Black" Text="{Binding EventId, StringFormat='Event: {0}'}" />
                                             </StackLayout>
 
                                         </StackLayout>

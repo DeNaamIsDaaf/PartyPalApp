@@ -8,6 +8,7 @@ namespace PartyPalApp.MVVM.ViewModels
 {
     public class Book
     {
+        // for binding to recognnise it, Book needs to be in viewmodels
         public int Id { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }
