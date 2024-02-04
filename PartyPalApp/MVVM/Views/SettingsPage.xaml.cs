@@ -22,4 +22,24 @@ public partial class SettingsPage : ContentPage
             await Navigation.PushAsync(new AdminPage());
         }
     }
+
+    private async void PrivacyAndSecurityButton_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Sorry!", "Deze functie wordt bij de volgende update uitgwerkt.", "OK");
+    }
+
+    private async void AppearanceButton_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Sorry!", "Deze functie wordt bij de volgende update uitgwerkt.", "OK");
+    }
+
+    private async void ProblemButton_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Sorry!", "Deze functie wordt bij de volgende update uitgwerkt.", "OK");
+    }
+
+    private async void FeedbackButton_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Sorry!", "Deze functie wordt bij de volgende update uitgwerkt.", "OK");
+    }
 }

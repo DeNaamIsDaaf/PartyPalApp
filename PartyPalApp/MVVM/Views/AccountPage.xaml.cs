@@ -11,4 +11,19 @@ public partial class AccountPage : ContentPage
     {
         await Navigation.PushAsync(new FriendPage());
     }
+
+    private async void OnFaqClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Sorry!", "Deze functie wordt bij de volgende update uitgwerkt.", "OK");
+    }
+
+    private async void OnReviewClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Sorry!", "Deze functie wordt bij de volgende update uitgwerkt.", "OK");
+    }
+
+    private async void OnAccountInformationClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Sorry!", "Deze functie wordt bij de volgende update uitgwerkt.", "OK");
+    }
 }
