@@ -25,9 +25,9 @@ namespace PartyPalApp.MVVM.ViewModels
             Books.Add(new Book()
             {
                 Id = 1,
-                Image = "account.png",
+                Image = "partypall.png",
                 Title = "Welkom bij PartyPal",
-                Description = "Ontdek een wereld vol evenementen en boeiende activiteiten met PartyPal. Of je nu op zoek bent naar opwindende workshops, bruisende feesten of andere unieke gebeurtenissen, onze app biedt een overzicht van wat er speelt in de Zuyd omgeving."
+                Description = "Ontdek een wereld vol evenementen en boeiende activiteiten met PartyPal. Of je nu op zoek bent naar opwindende workshops, bruisende feesten of andere unieke gebeurtenissen.."
             });
 
             Books.Add(new Book()
