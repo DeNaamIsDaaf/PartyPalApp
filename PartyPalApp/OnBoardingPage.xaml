@@ -14,7 +14,7 @@
                 <DataTemplate x:DataType="viewmodel:Book">
                     <Grid RowDefinitions="*, Auto, Auto, Auto">
                         <Image Grid.Row="0" Source="{Binding Image}" Aspect="AspectFit"></Image>
-                        <Label Grid.Row="1" Text="{Binding Title}" FontSize="36" TextColor="IndianRed" FontAttributes="Bold" Margin="20,0,20,60" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"></Label>
+                        <Label Grid.Row="1" Text="{Binding Title}" FontSize="30" TextColor="IndianRed" FontAttributes="Bold" Margin="20,20,20,30" VerticalOptions="Center" HorizontalOptions="Center"></Label>
                         <Label Grid.Row="2" Margin="20,0,20,50" Text="{Binding Description}" LineHeight="1.2"></Label>
                     </Grid>
                 </DataTemplate>
