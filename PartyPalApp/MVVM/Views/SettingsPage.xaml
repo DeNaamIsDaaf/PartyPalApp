@@ -40,28 +40,32 @@
                             BackgroundColor="Red"
                             TextColor="White"
                             FontAttributes="Bold"
-                            Margin="0,10,0,20"/>
+                            Margin="0,10,0,20"
+                            Clicked="PrivacyAndSecurityButton_Clicked"/>
                     <Button x:Name="AppearanceButton"
                         Text="Uiterlijk van de App"
                             FontSize="Medium"
                             BackgroundColor="Red"
                             TextColor="White"
                             FontAttributes="Bold"
-                            Margin="0,0,0,20"/>
+                            Margin="0,0,0,20"
+                            Clicked="AppearanceButton_Clicked"/>
                     <Button x:Name="ProblemButton"
                         Text="Probleem aangeven"
                             FontSize="Medium"
                             BackgroundColor="Red"
                             TextColor="White"
                             FontAttributes="Bold"
-                            Margin="0,0,0,20"/>
+                            Margin="0,0,0,20"
+                            Clicked="ProblemButton_Clicked"/>
                     <Button x:Name="FeedbackButton"
                         Text="Feedback geven"
                             FontSize="Medium"
                             BackgroundColor="Red"
                             TextColor="White"
                             FontAttributes="Bold"
-                            Margin="0,0,0,10"/>
+                            Margin="0,0,0,10"
+                            Clicked="FeedbackButton_Clicked"/>
                 </StackLayout>
             </Frame>
 

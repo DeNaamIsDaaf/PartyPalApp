@@ -46,9 +46,6 @@
 
 
             <StackLayout>
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnVriendenClicked"/>
-                </StackLayout.GestureRecognizers>
 
                 <StackLayout Orientation="Horizontal" 
                              Margin="0,0,0,10">
@@ -62,6 +59,9 @@
                            HeightRequest="30" 
                            WidthRequest="30"
                            Margin="90,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnVriendenClicked"/>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
                 
                 <BoxView Color="Gray" 
@@ -81,6 +81,9 @@
                            HeightRequest="30" 
                            WidthRequest="30"
                            Margin="122,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFaqClicked"/>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
                 
                 <BoxView Color="Gray" 
@@ -100,6 +103,9 @@
                        HeightRequest="30" 
                        WidthRequest="30"
                        Margin="60,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnReviewClicked"/>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
 
                 <BoxView Color="Gray" 
@@ -119,6 +125,9 @@
                            HeightRequest="30" 
                            WidthRequest="30"
                            Margin="30,0,0,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAccountInformationClicked"/>
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
                 
               
